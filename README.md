@@ -59,21 +59,83 @@ onError                :失败回调
 * ### Kotlin 使用
 
 ```
-IDImageTextRecognizer.IDImageProcess(image: Image,rotation: Int = 0,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.IDImageProcess(bitmap: Bitmap,rotation: Int = 0,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.IDImageProcess(context: Context,uri: Uri,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.IDImageProcess(byteBuffer: ByteBuffer,width: Int,height: Int,rotation: Int = 0,@InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.IDImageProcess(byteArray: ByteArray,width: Int,height: Int,rotation: Int = 0,@InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,idType: IDType,listener: OnRecognizeListener)
+IDImageTextRecognizer.IDImageProcess(
+   image: Image,
+   rotation: Int = 0,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.IDImageProcess(
+   bitmap: Bitmap,
+   rotation: Int = 0,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.IDImageProcess(
+   context: Context,
+   uri: Uri,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.IDImageProcess(
+   byteBuffer: ByteBuffer,
+   width: Int,
+   height: Int,
+   rotation: Int = 0,
+   @InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.IDImageProcess(
+   byteArray: ByteArray,
+   width: Int,
+   height: Int,
+   rotation: Int = 0,
+   @InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
 ```
 
 * ### Java 使用
 
 ```
-IDImageTextRecognizer.INSTANCE.IDImageProcess(image: Image,rotation: Int = 0,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.INSTANCE.IDImageProcess(bitmap: Bitmap,rotation: Int = 0,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.INSTANCE.IDImageProcess(context: Context,uri: Uri,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.INSTANCE.IDImageProcess(byteBuffer: ByteBuffer,width: Int,height: Int,rotation: Int = 0,@InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,idType: IDType,listener: OnRecognizeListener)
-IDImageTextRecognizer.INSTANCE.IDImageProcess(byteArray: ByteArray,width: Int,height: Int,rotation: Int = 0,@InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,idType: IDType,listener: OnRecognizeListener)
+IDImageTextRecognizer.INSTANCE.IDImageProcess(
+   image: Image,
+   rotation: Int = 0,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.INSTANCE.IDImageProcess(
+   bitmap: Bitmap,
+   rotation: Int = 0,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.INSTANCE.IDImageProcess(
+   context: Context,
+   uri: Uri,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.INSTANCE.IDImageProcess(
+   byteBuffer: ByteBuffer,
+   width: Int,
+   height: Int,
+   rotation: Int = 0,
+   @InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
+IDImageTextRecognizer.INSTANCE.IDImageProcess(
+   byteArray: ByteArray,
+   width: Int,
+   height: Int,
+   rotation: Int = 0,
+   @InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,
+   idType: IDType,
+   listener: OnRecognizeListener
+)
 ```
 
 
