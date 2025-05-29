@@ -39,8 +39,16 @@ object IDImageTextRecognizer {
         val inputImage = InputImage.fromMediaImage(image, rotation)
         recognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
-                val data = parse(visionText.text, idType)
-                listener.onSuccess(visionText.text, data)
+                when (idType.name) {
+                    IDType.NULL.name -> {
+                        listener.onSuccess(visionText.text, null)
+                    }
+
+                    else -> {
+                        val data = parse(visionText.text, idType)
+                        listener.onSuccess(visionText.text, data)
+                    }
+                }
             }
             .addOnFailureListener { e ->
                 listener.onError()
@@ -63,8 +71,16 @@ object IDImageTextRecognizer {
         val inputImage = InputImage.fromBitmap(bitmap, rotation)
         recognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
-                val data = parse(visionText.text, idType)
-                listener.onSuccess(visionText.text, data)
+                when (idType.name) {
+                    IDType.NULL.name -> {
+                        listener.onSuccess(visionText.text, null)
+                    }
+
+                    else -> {
+                        val data = parse(visionText.text, idType)
+                        listener.onSuccess(visionText.text, data)
+                    }
+                }
             }
             .addOnFailureListener { e ->
                 listener.onError()
@@ -89,8 +105,16 @@ object IDImageTextRecognizer {
             inputImage = InputImage.fromFilePath(context, uri)
             recognizer.process(inputImage)
                 .addOnSuccessListener { visionText ->
-                    val data = parse(visionText.text, idType)
-                    listener.onSuccess(visionText.text, data)
+                    when (idType.name) {
+                        IDType.NULL.name -> {
+                            listener.onSuccess(visionText.text, null)
+                        }
+
+                        else -> {
+                            val data = parse(visionText.text, idType)
+                            listener.onSuccess(visionText.text, data)
+                        }
+                    }
                 }
                 .addOnFailureListener { e ->
                     listener.onError()
@@ -125,8 +149,16 @@ object IDImageTextRecognizer {
             InputImage.fromByteBuffer(byteBuffer, width, height, rotation, format)
         recognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
-                val data = parse(visionText.text, idType)
-                listener.onSuccess(visionText.text, data)
+                when (idType.name) {
+                    IDType.NULL.name -> {
+                        listener.onSuccess(visionText.text, null)
+                    }
+
+                    else -> {
+                        val data = parse(visionText.text, idType)
+                        listener.onSuccess(visionText.text, data)
+                    }
+                }
             }
             .addOnFailureListener { e ->
                 listener.onError()
@@ -156,8 +188,16 @@ object IDImageTextRecognizer {
             InputImage.fromByteArray(byteArray, width, height, rotation, format)
         recognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
-                val data = parse(visionText.text, idType)
-                listener.onSuccess(visionText.text, data)
+                when (idType.name) {
+                    IDType.NULL.name -> {
+                        listener.onSuccess(visionText.text, null)
+                    }
+
+                    else -> {
+                        val data = parse(visionText.text, idType)
+                        listener.onSuccess(visionText.text, data)
+                    }
+                }
             }
             .addOnFailureListener { e ->
                 listener.onError()

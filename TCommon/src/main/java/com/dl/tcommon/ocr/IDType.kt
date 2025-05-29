@@ -11,5 +11,6 @@ enum class IDType {
     HK_ID_NEW,//香港新版身份证
     HK_ID_OLD,//香港旧版身份证
     MACAU_ID_NEW,//澳门新版身份证
-    MACAU_ID_OLD//澳门旧版身份证
+    MACAU_ID_OLD,//澳门旧版身份证
+    NULL//未知卡包
 }

@@ -11,7 +11,8 @@ implementation("com.github.LoongSource:DLLibrary:1.0.5")
 
 ## About
 
-    封装了Google ML Kit 文字识别，并添加了香港、澳门、港澳通行证、护照等证件的图片解析，并返回IDImageTextRecognizerModel对象
+    1、封装了Google ML Kit 文字识别，并返回数据识别后的数据
+    2、并添加了香港、澳门、港澳通行证、护照等证件的图片解析，并返回IDImageTextRecognizerModel对象
 
 ## APIs
 
@@ -31,6 +32,7 @@ IDType.HK_ID_NEW       :香港新版身份证
 IDType.HK_ID_OLD       :香港旧版身份证
 IDType.MACAU_ID_NEW    :澳门新版身份证
 IDType.MACAU_ID_OLD    :澳门旧版身份证
+IDType.NULL            :未知卡包
 ```
 
 * ### IDImageTextRecognizerModel 返回的数据模型

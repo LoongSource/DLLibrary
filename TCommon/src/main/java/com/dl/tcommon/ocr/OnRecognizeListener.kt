@@ -11,6 +11,6 @@ interface OnRecognizeListener {
      * @param visionText 返回的ocr识别的原数据
      * @param data 解析出的数据对象
      */
-    fun onSuccess(visionText: String, data: IDImageTextRecognizerModel)
+    fun onSuccess(visionText: String, data: IDImageTextRecognizerModel?)
     fun onError()
 }
