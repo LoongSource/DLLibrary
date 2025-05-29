@@ -24,7 +24,11 @@ object IDImageTextRecognizer {
         TextRecognition.getClient(ChineseTextRecognizerOptions.Builder().build())
 
     /**
-     * 身份图像处理
+     * 证件图像解析 基于 media.Image 对象创建 InputImage 对象（例如从设备的相机捕获图片时）
+     * @param image image
+     * @param rotation 图片旋转角度
+     * @param idType 证件类型
+     * @param listener 处理回调
      */
     fun IDImageProcess(
         image: Image,
@@ -43,6 +47,13 @@ object IDImageTextRecognizer {
             }
     }
 
+    /**
+     * 证件图像解析 基于 Bitmap 对象创建 InputImage 对象
+     * @param bitmap bitmap
+     * @param rotation 图片旋转角度
+     * @param idType 证件类型
+     * @param listener 处理回调
+     */
     fun IDImageProcess(
         bitmap: Bitmap,
         rotation: Int = 0,
@@ -60,6 +71,13 @@ object IDImageTextRecognizer {
             }
     }
 
+    /**
+     * 证件图像解析 基于文件 URI 创建 InputImage 对象
+     * @param uri Uri
+     * @param context 应用上下文
+     * @param idType 证件类型
+     * @param listener 处理回调
+     */
     fun IDImageProcess(
         context: Context,
         uri: Uri,
@@ -84,6 +102,16 @@ object IDImageTextRecognizer {
 
     }
 
+    /**
+     * 证件图像解析 基于 ByteBuffer 或 ByteArray 创建 InputImage 对象
+     * @param byteBuffer 缓冲区
+     * @param width 宽度
+     * @param height 高度
+     * @param rotation 旋转角度、
+     * @param format 图片格式
+     * @param idType 证件类型
+     * @param listener 处理回调
+     */
     fun IDImageProcess(
         byteBuffer: ByteBuffer,
         width: Int,
@@ -105,12 +133,43 @@ object IDImageTextRecognizer {
             }
     }
 
+    /**
+     * 证件图像解析 基于 ByteBuffer 或 ByteArray 创建 InputImage 对象
+     * @param byteArray byte数组
+     * @param width 宽度
+     * @param height 高度
+     * @param rotation 旋转角度、
+     * @param format 图片格式
+     * @param idType 证件类型
+     * @param listener 处理回调
+     */
+    fun IDImageProcess(
+        byteArray: ByteArray,
+        width: Int,
+        height: Int,
+        rotation: Int = 0,
+        @InputImage.ImageFormat format: Int = InputImage.IMAGE_FORMAT_NV21,
+        idType: IDType,
+        listener: OnRecognizeListener
+    ) {
+        val inputImage: InputImage =
+            InputImage.fromByteArray(byteArray, width, height, rotation, format)
+        recognizer.process(inputImage)
+            .addOnSuccessListener { visionText ->
+                val data = parse(visionText.text, idType)
+                listener.onSuccess(visionText.text, data)
+            }
+            .addOnFailureListener { e ->
+                listener.onError()
+            }
+    }
+
 
     /**
-     * @param ocrText ocr字符串
+     * @param ocrText ocr提取的字符串
      * @param idType 类型
      */
-    fun parse(ocrText: String, idType: IDType): IDImageTextRecognizerModel {
+    private fun parse(ocrText: String, idType: IDType): IDImageTextRecognizerModel {
         return when (idType.name) {
             IDType.CHINA_EEP.name -> {
                 EEPHelper.parse(ocrText)
